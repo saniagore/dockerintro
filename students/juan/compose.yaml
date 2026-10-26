@@ -1,0 +1,20 @@
+services:
+  juan:
+    build: .
+    image: juan-service:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - mariano_ramos
+    volumes:
+      - biblioteca-del-pueblo:/var/log/app
+
+networks:
+  mariano_ramos:
+    external: true
+    name: mariano_ramos
+
+volumes:
+  biblioteca-del-pueblo:
+    external: true
+    name: biblioteca-del-pueblo
